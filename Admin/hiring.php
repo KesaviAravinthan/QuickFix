@@ -220,11 +220,9 @@ include '../classes.php';
                             $service =new Service();
                             $service->read($service_id);
 
-                            $tradesman = new Tradesman();
-                            $tradesman->read($tradesman_id);
+                            $tradesman = Tradesman::getInstance($tradesman_id);
 
-                            $customer = new Customer();
-                            $customer->read($customer_id);
+                            $customer = Customer::getInstance($customer_id);
                     ?>
 
                             <tr id="table-text">

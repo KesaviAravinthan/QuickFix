@@ -65,8 +65,7 @@ include '../classes.php';
                                     if (mysqli_num_rows($last_customer_result) > 0) {
                                         while ($row_item = mysqli_fetch_assoc($last_customer_result)) {
                                             $customer_id = $row_item['customer_id'];
-                                            $customer = new Customer();
-                                            $customer->read($customer_id);
+                                            $customer = Customer::getInstance($customer_id);
 
 
                                     ?>
@@ -124,8 +123,7 @@ include '../classes.php';
                                     if (mysqli_num_rows($last_tradesman_result) > 0) {
                                         while ($row_item = mysqli_fetch_assoc($last_tradesman_result)) {
                                             $tradesman_id = $row_item['tradesman_id'];
-                                            $tradesman = new Tradesman();
-                                            $tradesman->read($tradesman_id);
+                                            $tradesman = Tradesman::getInstance($tradesman_id);
 
 
                                     ?>

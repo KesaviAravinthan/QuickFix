@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 
-$tradesman_id = "2";   //only for first viva
+$tradesman_id = $user->getTradesman_id(); 
 
 ?>
 
@@ -10,8 +10,27 @@ $tradesman_id = "2";   //only for first viva
 <html lang="en">
 
 <head>
- 
-    <title>Tradesman Hirings</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>My Hirings</title>
 </head>
 <style>
     .myHiringsPage {
@@ -535,8 +554,7 @@ $tradesman_id = "2";   //only for first viva
 
             $service_name = $hiring->getService_name($service_id);
             
-            $customer = new Customer();
-            $customer->read($customer_id);
+            $customer = Customer::getInstance($customer_id);
             $customer_name = $customer->getFirstname();
             $customer_address = $customer->getAddress();  //address may be changed
             $profile = $customer->getImg();
@@ -553,7 +571,7 @@ $tradesman_id = "2";   //only for first viva
             <div class="col-xxl-3 col-lg-4 col-md-5 col-sm-7 col-xs-8 col-9  box">
                 <div class="row justify-content-between">
                     <div class="col-2">
-                        <img id="" class="profile" src="Customer/Assets/custoimages/<?php echo $profile ?>" alt="profile">    
+                        <img id="" class="profile" src="<?php echo $profile ?>" alt="profile">    
 
                     </div>
                     <div class="col-8 col-xs-8 col-sm-9 col-md-9">
@@ -799,7 +817,7 @@ $tradesman_id = "2";   //only for first viva
     
 <script>
     
-        $("#abc12").addClass("active");
+        //$("#abc12").addClass("active");
         //code for tab active change----------------------------------------------------------------------------------------
         var typeContainer = document.getElementById("types");
 

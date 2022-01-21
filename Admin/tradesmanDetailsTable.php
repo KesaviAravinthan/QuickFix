@@ -146,9 +146,8 @@ include '../classes.php';
                             die('QUERY FAIL!');
                         }
                         while ($row = mysqli_fetch_assoc($result)) {
-                            $tradesman = new Tradesman();
                             $tradesman_id = $row['tradesman_id'];
-                            $tradesman->read($tradesman_id);
+                            $tradesman =Tradesman::getInstance($tradesman_id);
 
                         ?>
                             <!-- tradesman table details ROW                 -->
