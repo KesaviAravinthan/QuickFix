@@ -146,8 +146,7 @@ include '../classes.php';
                         }
                         while ($row = mysqli_fetch_assoc($result)) {
                             $customer_id = $row['customer_id'];
-                            $customer = new Customer();
-                            $customer->read($customer_id);
+                            $customer = Customer::getInstance($customer_id)
 
                         ?>
                             <!-- customer table details ROW                 -->

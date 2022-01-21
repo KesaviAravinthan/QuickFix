@@ -27,7 +27,7 @@
                             style="border-radius: 2px;padding-left: 2.375rem;background-color: #e9ecef;">
                     </div>
 
-                    <div class="container my-3 fw-bold">
+                    <div class="container my-3 fw-bold p-0">
                         <?php
                             $query = "SELECT `provider_name` FROM `service`";
                             $result = QueryHandler::query($query);
